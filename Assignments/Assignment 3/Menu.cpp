@@ -1,5 +1,5 @@
 #include <iostream>
-#include "finalsv2header.h"
+#include "Menu.h"
 using namespace std;
 
 void sequenceMainMenu()
@@ -296,7 +296,7 @@ void mainMenu()
 	}
 }
 
-void main()
+int main()
 {
 	login();
 	mainMenu();
