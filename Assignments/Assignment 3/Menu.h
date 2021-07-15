@@ -38,7 +38,7 @@ void login()
 	{
 		clrscr();
 		//gotoxy(32,9);
-		cout << "Please log in: test if this changes" << endl;
+		cout << "Please log in:" << endl;
 		//gotoxy(32,11);
 		cout << "Username: ";
 		cin >> loginUser;
