@@ -299,5 +299,6 @@ void mainMenu()
 int main()
 {
 	login();
+	clrscr();
 	mainMenu();
 }
