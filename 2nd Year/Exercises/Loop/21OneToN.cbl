@@ -1,0 +1,20 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 21-1-TO-N.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+       01 BASENUM PIC 9(2) VALUE 1.
+       01 ONETONUM PIC 9(2).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY "ENTER N:".
+           ACCEPT ONETONUM.
+           DISPLAY " ".
+
+           PERFORM UNTIL BASENUM > ONETONUM
+               DISPLAY BASENUM
+               ADD 1 TO BASENUM
+           END-PERFORM.
+           STOP RUN.
+
+       END PROGRAM 21-1-TO-N.

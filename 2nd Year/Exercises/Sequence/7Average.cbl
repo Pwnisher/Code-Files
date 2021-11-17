@@ -1,0 +1,23 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 7-AVERAGE-OF-SCORES.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+       01 PRELIMS PIC 9(3).
+       01 MIDTERM PIC 9(3).
+       01 FINALS PIC 9(3).
+       01 AVE PIC 9(2)V9(2).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+            DISPLAY "PRELIMS: ".
+            ACCEPT PRELIMS.
+            DISPLAY "MIDTERM: ".
+            ACCEPT MIDTERM.
+            DISPLAY "FINALS: ".
+            ACCEPT FINALS.
+
+            COMPUTE AVE = (PRELIMS + MIDTERM + FINALS) / 3.
+
+            DISPLAY "AVERAGE IS: " AVE.
+            STOP RUN.
+       END PROGRAM 7-AVERAGE-OF-SCORES.

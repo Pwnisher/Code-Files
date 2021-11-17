@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 8-RECTANGLE.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+       01 RECTLENGTH pic 9(2).
+       01 RECTWIDTH pic 9(2).
+       01 RECTAREA pic 9(2).
+       01 PERIMETER pic 9(2).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+            DISPLAY "LENGTH: ".
+            ACCEPT RECTLENGTH.
+            DISPLAY "WIDTH: ".
+            ACCEPT RECTWIDTH.
+
+            COMPUTE RECTAREA = RECTLENGTH * RECTWIDTH.
+            COMPUTE PERIMETER = (RECTLENGTH + RECTWIDTH) * 2.
+
+            DISPLAY "The area is " RECTAREA.
+            DISPLAY "The perimeter is " PERIMETER.
+       END PROGRAM 8-RECTANGLE.

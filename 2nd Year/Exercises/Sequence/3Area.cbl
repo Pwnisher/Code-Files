@@ -1,0 +1,21 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 3-Area-and-Circumference.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+       01 PI pic S9(1)V9(2) VALUE 3.14.
+       01 RADIUS pic S9(2).
+       01 CIRCLEAREA pic 9(4)V9(2).
+       01 CIRCUMFERENCE pic 9(3)V9(2).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+            DISPLAY "INPUT RADIUS:".
+            ACCEPT RADIUS.
+
+            COMPUTE CIRCLEAREA = PI * (RADIUS * RADIUS).
+            COMPUTE CIRCUMFERENCE = 2 * PI * RADIUS.
+
+            DISPLAY "THE AREA IS: " CIRCLEAREA.
+            DISPLAY "THE CIRCUMFERENCE IS: " CIRCUMFERENCE.
+
+       END PROGRAM 3-Area-and-Circumference.
