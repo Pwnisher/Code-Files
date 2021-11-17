@@ -1,0 +1,972 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MAIN-MENU.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+           01 CHOICE PIC X(1).
+           01 CHOICE-SEQUENCE PIC X(1).
+           01 CHOICE-SELECTION PIC X(1).
+           01 CHOICE-LOOPS PIC X(1).
+           01 GETCH PIC X(1).
+           01 LINEROW PIC 9(2) VALUE 15.
+           01 BORDERLINE PIC 9(2) VALUE 01.
+           01 BORDERCOL PIC 9(2) VALUE 01.
+
+           01 MDASNUM1 PIC 9(2).
+           01 MDASNUM2 PIC 9(2).
+           01 TOTAL-SUM PIC 9(2).
+           01 TOTAL-DIFF PIC 9(2).
+           01 TOTAL-PROD PIC 9(2).
+           01 TOTAL-QUO PIC 9(2).
+
+           01 PI PIC S9(1)V9(2) VALUE 3.14.
+           01 RADIUS PIC S9(2).
+           01 CIRCLEAREA PIC 9(4)V9(2).
+           01 CIRCUMFERENCE PIC 9(3)V9(2).
+
+           01 SWAPNUM1 PIC 9(2).
+           01 SWAPNUM2 PIC 9(2).
+           01 SWAPNUM3 PIC 9(2).
+
+           01 CELSIUS PIC S9(2)V9(2).
+           01 FARENHE PIC 9(3)V9(2).
+
+           01 FIRSTNAME PIC X(99).
+           01 LASTNAME PIC X(99).
+           01 HOURSWORK PIC 9(2).
+           01 RATEPERHOUR PIC 9(3).
+           01 DEDUCTION PIC 9(5).
+           01 GROSSPAY PIC 9(10).
+           01 NETPAY PIC 9(10).
+
+           01 PRELIMS PIC 9(3).
+           01 MIDTERM PIC 9(3).
+           01 FINALS PIC 9(3).
+           01 AVE PIC 9(2)V9(2).
+
+           01 RECTLENGTH pic 9(2).
+           01 RECTWIDTH pic 9(2).
+           01 RECTAREA pic 9(3).
+           01 PERIMETER pic 9(2).
+
+           01 ORDERNUM PIC 9(10).
+           01 ORDERAMOUNT PIC 9(4).
+           01 ORDERTENDER PIC 9(4).
+           01 ORDERCHANGE PIC 9(4).
+
+           01 QUADA PIC 9(1).
+           01 QUADB PIC 9(1).
+           01 QUADC PIC 9(1).
+           01 QUADD PIC 9(2).
+           01 ROOT1 PIC S9(2)V9(2).
+           01 ROOT2 PIC S9(2)V9(2).
+
+      *    *****************************
+           01 POSNEGNEU PIC S9(2).
+
+           01 ODDOREVEN PIC 9(2).
+           01 ODDEVEN PIC 9(2).
+           01 DIVISOR PIC 9(2) VALUE 2.
+
+           01 LARGEST1 PIC 9(2).
+           01 LARGEST2 PIC 9(2).
+           01 LARGEST3 PIC 9(2).
+
+           01 LARGER1 pic 9(2).
+           01 LARGER2 pic 9(2).
+
+           01 PRIMEN PIC 9(2) VALUE 0.
+           01 PRIMETEMP PIC 9(3) VALUE 2.
+           01 PRIMEREM PIC 9(3) VALUE 0.
+           01 Q PIC 9 VALUE 0.
+
+           01 PRELIMSV2 PIC 9(3).
+           01 MIDTERMV2 PIC 9(3).
+           01 FINALSV2 PIC 9(3).
+           01 AVEV2 PIC 9(3)V9(2).
+
+           01 COMMNAME PIC X(10).
+           01 UNITSOLD PIC 9(3).
+           01 UNITPRICE PIC 9(3).
+           01 TOTALSALE PIC 9(5).
+           01 COMMISSION PIC 9(3)V9(2).
+
+           01 CHARVOC PIC X(1).
+
+           01 ORDERNUMV2 PIC 9(10).
+           01 ORDERAMOUNTV2 PIC 9(4).
+           01 ORDERTENDERV2 PIC 9(4).
+           01 ORDERCHANGEV2 PIC 9(4).
+
+           01 BANKNUMBER PIC 9(10).
+           01 BANKNAME PIC X(99).
+           01 BANKBALANCE PIC 9(10).
+           01 BANKCHOICE PIC X(1).
+           01 BANKAMOUNT PIC 9(10).
+           01 BANKTRANCAMOUNT PIC 9(10).
+
+      *    ******************************
+           01 BASENUM PIC 9(2) VALUE 1.
+           01 ONETONUM PIC 9(2).
+
+           01 EVENBASENUM PIC 9(2).
+           01 EVENNUM1 PIC 9(2).
+
+           01 FACTNUM PIC 9(1) VALUE 0.
+           01 FACTI PIC 9(3) VALUE 0.
+           01 FACTORIAL PIC 9(3) VALUE 1.
+
+           01 FIBON1 PIC 9(2) VALUE 1.
+           01 FIBON2 PIC 9(2) VALUE 1.
+           01 FIBOTEMP PIC 9(2).
+           01 FIBOCAP PIC 9(2).
+           01 FIBOI PIC 9(2).
+
+           01 REVN PIC 9(6).
+           01 REVTEMP PIC 9(6).
+           01 REVREM PIC 9.
+           01 REVERSEREV PIC 9(6) VALUE 000000.
+
+           01 STARROWS PIC 9(1) VALUE 5.
+           01 STARLINE PIC 9(1) VALUE 1.
+           01 STARCUR PIC 9(1) VALUE 1.
+
+           01 TRIROWS PIC 9(1) VALUE 6.
+           01 TRILINE PIC 9(1) VALUE 1.
+           01 TRICUR PIC 9(1) VALUE 5.
+           01 NUMTRIANGLE PIC 9(1) VALUE 5.
+
+           01 STARROWSV2 PIC 9(1) VALUE 5.
+           01 STARLINEV2 PIC 9(1) VALUE 1.
+           01 STARCURV2 PIC 9(1) VALUE 1.
+           01 STARSPACE PIC 9(1) VALUE 5.
+           01 TRIROWSV2 PIC 9(1) VALUE 6.
+           01 TRILINEV2 PIC 9(1) VALUE 1.
+           01 TRICURV2 PIC 9(1) VALUE 4.
+           01 TRISPACE PIC 9(1) VALUE 4.
+
+           01 ORDERNUMV3 PIC 9(10).
+           01 ORDERAMOUNTV3 PIC 9(4).
+           01 ORDERTENDERV3 PIC 9(4).
+           01 ORDERCHANGEV3 PIC 9(4).
+           01 ORDERCOUNTV3 PIC 9(1).
+           01 ITEMNAME PIC X(99).
+           01 ITEMPRICE PIC 9(4).
+       SCREEN SECTION.
+           01 CLEAR-SCREEN.
+           02 BLANK SCREEN.
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+       WELCOME-SCREEN.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "WELCOME TO" AT 0840.
+           DISPLAY "COBOL MAIN MENU" AT 0937.
+           DISPLAY "MADE BY:" AT 1141.
+           DISPLAY "MARK ANGELO DECENA" AT 1236.
+           PERFORM MAINMENU.
+       MAINMENU.
+           MOVE "Z" TO CHOICE.
+           PERFORM BORDER.
+           DISPLAY "CHOOSE A MENU:" AT 1530.
+           DISPLAY "[A] SEQUENCE" AT 1630.
+           DISPLAY "[B] SELECTION" AT 1730.
+           DISPLAY "[C] LOOPS" AT 1830.
+           DISPLAY "[X] EXIT" AT 1930.
+           DISPLAY "CHOICE: " AT 2130.
+           ACCEPT CHOICE AT 2138.
+
+           EVALUATE TRUE
+               WHEN CHOICE = "A"
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE = "B"
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE = "C"
+                   PERFORM LOOPS-MENU
+                WHEN CHOICE = "X"
+                   STOP RUN.
+           STOP RUN.
+
+       SEQUENCE-MENU.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "SEQUENCE MENU" AT 0838.
+           DISPLAY "CHOOSE A MODULE:" AT 1130.
+           DISPLAY "[A] HELLO WORLD" AT 1230.
+           DISPLAY "[B] MDAS" AT 1330.
+           DISPLAY "[C] AREA OF CIRCLE" AT 1430.
+           DISPLAY "[D] SWAP NUMBERS" AT 1530.
+           DISPLAY "[E] CELSIUS TO FARENHEIT" AT 1630.
+           DISPLAY "[F] TOTAL SALES" AT 1730.
+           DISPLAY "[G] AVERAGE GRADE" AT 1830.
+           DISPLAY "[H] RECTANGLE" AT 1930.
+           DISPLAY "[I] TENDER CHANGE" AT 2030.
+           DISPLAY "[J] QUADRATIC" AT 2130.
+           DISPLAY "[X] EXIT" AT 2230.
+           DISPLAY "CHOICE: " AT 2330.
+           ACCEPT CHOICE-SEQUENCE AT 2338.
+
+           EVALUATE TRUE
+               WHEN CHOICE-SEQUENCE = "A"
+                   PERFORM SEQUENCE-A
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "B"
+                   PERFORM SEQUENCE-B
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "C"
+                   PERFORM SEQUENCE-C
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "D"
+                   PERFORM SEQUENCE-D
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "E"
+                   PERFORM SEQUENCE-E
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "F"
+                   PERFORM SEQUENCE-F
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "G"
+                   PERFORM SEQUENCE-G
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "H"
+                   PERFORM SEQUENCE-H
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "I"
+                   PERFORM SEQUENCE-I
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "J"
+                   PERFORM SEQUENCE-J
+                   PERFORM SEQUENCE-MENU
+               WHEN CHOICE-SEQUENCE = "X"
+                   DISPLAY CLEAR-SCREEN.
+                   PERFORM WELCOME-SCREEN
+           STOP RUN.
+
+       SELECTION-MENU.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "SELECTION MENU" AT 0838.
+           DISPLAY "CHOOSE A MODULE:" AT 1130.
+           DISPLAY "[A] POSITIVE, NEGATIVE, ZERO" AT 1230.
+           DISPLAY "[B] ODD OR EVEN" AT 1330.
+           DISPLAY "[C] LARGEST AMONG 3 NUMBERS" AT 1430.
+           DISPLAY "[D] LARGEST AMONG 2 NUMBERS" AT 1530.
+           DISPLAY "[E] PRIME NUMBERS" AT 1630.
+           DISPLAY "[F] FINAL GRADE" AT 1730.
+           DISPLAY "[G] COMMISSION" AT 1830.
+           DISPLAY "[H] VOWEL OR CONSONANT" AT 1930.
+           DISPLAY "[I] TENDER CHANGE" AT 2030.
+           DISPLAY "[J] BANK" AT 2130.
+           DISPLAY "[X] EXIT" AT 2230.
+           DISPLAY "CHOICE: " AT 2330.
+           ACCEPT CHOICE-SELECTION AT 2338.
+
+           EVALUATE TRUE
+               WHEN CHOICE-SELECTION = "A"
+                   PERFORM SELECTION-A
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "B"
+                   PERFORM SELECTION-B
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "C"
+                   PERFORM SELECTION-C
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "D"
+                   PERFORM SELECTION-D
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "E"
+                   PERFORM SELECTION-E
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "F"
+                   PERFORM SELECTION-F
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "G"
+                   PERFORM SELECTION-G
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "H"
+                   PERFORM SELECTION-H
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "I"
+                   PERFORM SELECTION-I
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "J"
+                   PERFORM SELECTION-J
+                   PERFORM SELECTION-MENU
+               WHEN CHOICE-SELECTION = "X"
+                   DISPLAY CLEAR-SCREEN.
+                   PERFORM WELCOME-SCREEN
+           STOP RUN.
+
+       LOOPS-MENU.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "LOOPS MENU" AT 0838.
+           DISPLAY "CHOOSE A MODULE:" AT 1130.
+           DISPLAY "[A] 1 TO N" AT 1230.
+           DISPLAY "[B] EVEN NUMBERS FROM 1 TO N" AT 1330.
+           DISPLAY "[C] FACTORIAL" AT 1430.
+           DISPLAY "[D] FIBONACCI" AT 1530.
+           DISPLAY "[E] PALINDROME" AT 1630.
+           DISPLAY "[F] RIGHT TRIANGLE ASTERISK" AT 1730.
+           DISPLAY "[G] INVERTED RIGHT TRIANGLE" AT 1830.
+           DISPLAY "[H] DIAMOND ASTERISK" AT 1930.
+           DISPLAY "[I] TENDER CHANGE V2" AT 2030.
+           DISPLAY "[X] EXIT" AT 2130.
+           DISPLAY "CHOICE: " AT 2230.
+           ACCEPT CHOICE-LOOPS AT 2238.
+
+           EVALUATE TRUE
+               WHEN CHOICE-LOOPS = "A"
+                   PERFORM LOOPS-A
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "B"
+                   PERFORM LOOPS-B
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "C"
+                   PERFORM LOOPS-C
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "D"
+                   PERFORM LOOPS-D
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "E"
+                   PERFORM LOOPS-E
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "F"
+                   PERFORM LOOPS-F
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "G"
+                   PERFORM LOOPS-G
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "H"
+                   PERFORM LOOPS-H
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "I"
+                   PERFORM LOOPS-I
+                   PERFORM LOOPS-MENU
+               WHEN CHOICE-LOOPS = "X"
+                   DISPLAY CLEAR-SCREEN
+                   PERFORM WELCOME-SCREEN
+           STOP RUN.
+
+       SEQUENCE-A.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "HELLO WORLD" AT 1338.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2230.
+           ACCEPT GETCH AT 2330.
+
+
+       SEQUENCE-B.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUM1: " AT 1338.
+           ACCEPT MDASNUM1 AT 1350.
+           DISPLAY "INPUT NUM2: " AT 1438.
+           ACCEPT MDASNUM2 AT 1450.
+
+           COMPUTE TOTAL-SUM = MDASNUM1 + MDASNUM2.
+           COMPUTE TOTAL-DIFF = MDASNUM1 - MDASNUM2.
+           COMPUTE TOTAL-PROD = MDASNUM1 * MDASNUM2.
+           COMPUTE TOTAL-QUO = MDASNUM1 / MDASNUM2.
+
+           DISPLAY "SUM OF NUM1 AND MNUM2 = " AT 1631 TOTAL-SUM AT 1655.
+           DISPLAY "DIFFERENCE OF NUM1 AND NUM2 = " AT 1731.
+           DISPLAY TOTAL-DIFF AT 1761.
+           DISPLAY "PRODUCT OF NUM1 AND NUM2 = " AT 1831.
+           DISPLAY TOTAL-PROD AT 1858.
+           DISPLAY "QUOTIENT OF NUM1 AND NUM2 = " AT 1931.
+           DISPLAY TOTAL-QUO AT 1959.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-C.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT RADIUS: " AT 1338.
+           ACCEPT RADIUS AT 1352.
+
+           COMPUTE CIRCLEAREA = PI * (RADIUS * RADIUS).
+           COMPUTE CIRCUMFERENCE = 2 * PI * RADIUS.
+
+           DISPLAY "THE AREA IS: " AT 1631 CIRCLEAREA AT 1644.
+           DISPLAY "THE CIRCUMFERENCE IS: " AT 1731.
+           DISPLAY CIRCUMFERENCE AT 1753.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-D.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUM1: " AT 1338.
+           ACCEPT SWAPNUM1 AT 1350.
+           DISPLAY "INPUT NUM2: " AT 1438.
+           ACCEPT SWAPNUM2 AT 1450.
+
+           MOVE SWAPNUM1 TO SWAPNUM3.
+           MOVE SWAPNUM2 TO SWAPNUM1.
+           MOVE SWAPNUM3 TO SWAPNUM2.
+
+           DISPLAY "NUM1 IS " AT 1638 SWAPNUM1 AT 1646.
+           DISPLAY "NUM2 IS " AT 1738 SWAPNUM2 AT 1746.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-E.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT CELSIUS:" AT 1338.
+           ACCEPT CELSIUS AT 1352.
+
+           COMPUTE FARENHE = CELSIUS * 9 / 5 + 32.
+           DISPLAY "FARENHEIT: " AT 1538 FARENHE AT 1549.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-F.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "FIRST NAME: " AT 1338.
+           ACCEPT FIRSTNAME AT 1350.
+           DISPLAY "LAST NAME: " AT 1438.
+           ACCEPT LASTNAME AT 1449.
+           DISPLAY "NUMBER OF HOURS: " AT 1538.
+           ACCEPT HOURSWORK AT 1555.
+           DISPLAY "RATE PER HOUR: " AT 1638.
+           ACCEPT RATEPERHOUR AT 1653.
+           DISPLAY "DEDUCTION: " AT 1739.
+           ACCEPT DEDUCTION AT 1747.
+
+           COMPUTE GROSSPAY = HOURSWORK * RATEPERHOUR.
+           COMPUTE NETPAY = GROSSPAY - DEDUCTION.
+
+           DISPLAY FIRSTNAME "'S GROSSPAY IS " GROSSPAY.
+           DISPLAY FIRSTNAME "'S NETPAY IS " NETPAY.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+
+       SEQUENCE-G.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "PRELIMS: " AT 1338.
+           ACCEPT PRELIMS AT 1347.
+           DISPLAY "MIDTERM: " AT 1438.
+           ACCEPT MIDTERM AT 1447.
+           DISPLAY "FINALS: " AT 1538.
+           ACCEPT FINALS AT 1546.
+
+           COMPUTE AVE = (PRELIMS + MIDTERM + FINALS) / 3.
+
+           DISPLAY "AVERAGE IS: " AT 1738 AVE AT 1750.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-H.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "LENGTH: " AT 1333.
+           ACCEPT RECTLENGTH AT 1341.
+           DISPLAY "WIDTH: " AT 1433.
+           ACCEPT RECTWIDTH AT 1440.
+
+           COMPUTE RECTAREA = RECTLENGTH * RECTWIDTH.
+           COMPUTE PERIMETER = (RECTLENGTH + RECTWIDTH) * 2.
+
+           DISPLAY "THE AREA IS " AT 1633 RECTAREA AT 1645.
+           DISPLAY "THE PERIMETER IS " AT 1733 PERIMETER AT 1750.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-I.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "ORDER NUMBER: " AT 1338.
+           ACCEPT ORDERNUM AT 1352.
+           DISPLAY "ORDER AMOUNT: " AT 1438.
+           ACCEPT ORDERAMOUNT AT 1452.
+           DISPLAY "TENDER AMOUNT: " AT 1538.
+           ACCEPT ORDERTENDER AT 1553.
+
+           COMPUTE ORDERCHANGE = ORDERTENDER - ORDERAMOUNT.
+
+           DISPLAY "ORDER TOTAL   : P" AT 1738 ORDERAMOUNT AT 1755.
+           DISPLAY "TENDER AMOUNT : P" AT 1838 ORDERTENDER AT 1855.
+           DISPLAY "CHANGE        : P" AT 1938 ORDERCHANGE AT 1955.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SEQUENCE-J.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "ENTER A: " AT 1338.
+           ACCEPT QUADA AT 1347.
+           DISPLAY "ENTER B: " AT 1438.
+           ACCEPT QUADB AT 1447.
+           DISPLAY "ENTER C: " AT 1538.
+           ACCEPT QUADC AT 1547.
+
+           COMPUTE QUADD = (QUADB * QUADB) - (4 * QUADA * QUADC).
+           COMPUTE ROOT1 = (-QUADB + FUNCTION SQRT(QUADD)) / (2 * QUADA).
+           COMPUTE ROOT2 = (-QUADB - FUNCTION SQRT(QUADD)) / (2 * QUADA).
+
+           DISPLAY "THE ROOTS ARE " AT 1738 ROOT1 AT 1752.
+           DISPLAY " AND " AT 1754 ROOT2 AT 1759.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-A.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT POSNEGNEU AT 1352.
+
+           IF POSNEGNEU IS POSITIVE THEN
+               DISPLAY POSNEGNEU AT 1538 " IS POSITIVE" AT 1540.
+           IF POSNEGNEU IS NEGATIVE THEN
+               DISPLAY POSNEGNEU AT 1538 " IS NEGATIVE" AT 1540.
+           IF POSNEGNEU IS ZERO THEN
+               DISPLAY POSNEGNEU AT 1538 " IS ZERO" AT 1540.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-B.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT ODDOREVEN AT 1352.
+
+           COMPUTE ODDEVEN = FUNCTION MOD (ODDOREVEN,DIVISOR).
+           IF ODDEVEN = 1 THEN
+               DISPLAY ODDOREVEN AT 1538 " IS ODD" AT 1540.
+           IF ODDEVEN = 0 THEN
+               DISPLAY ODDOREVEN AT 1538 " IS EVEN" AT 1540.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-C.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUM1: " AT 1338.
+           ACCEPT LARGEST1 AT 1350.
+           DISPLAY "INPUT NUM2: " AT 1438.
+           ACCEPT LARGEST2 AT 1450.
+           DISPLAY "INPUT NUM3: " AT 1538.
+           ACCEPT LARGEST3 AT 1550.
+
+           IF LARGEST1 > LARGEST2 AND LARGEST1 > LARGEST3 THEN
+               DISPLAY LARGEST1 AT 1738 " IS THE BIGGEST NUMBER" AT 1740
+           ELSE IF LARGEST2 > LARGEST1 AND LARGEST2 > LARGEST3 THEN
+               DISPLAY LARGEST2 AT 1738 " IS THE BIGGEST NUMBER" AT 1740
+           ELSE
+               DISPLAY LARGEST3 AT 1738 " IS THE BIGGEST NUMBER" AT 1740.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-D.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUM1: " AT 1338.
+           ACCEPT LARGER1 AT 1350.
+           DISPLAY "INPUT NUM2: " AT 1438.
+           ACCEPT LARGER2 AT 1450.
+
+           IF LARGER1 > LARGER2 THEN
+               DISPLAY LARGER1 AT 1538 " IS THE BIGGEST NUMBER" AT 1540
+           ELSE
+               DISPLAY LARGER2 AT 1538 " IS THE BIGGEST NUMBER" AT 1540.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-E.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT PRIMEN AT 1352.
+
+           PERFORM UNTIL PRIMETEMP >= PRIMEN
+               DIVIDE PRIMEN BY PRIMETEMP GIVING Q REMAINDER PRIMEREM
+               IF PRIMEREM = 0
+                   DISPLAY "GIVEN NUMBER IS NOT PRIME" AT 1438
+               END-IF
+               IF PRIMEN = PRIMETEMP THEN
+                   DISPLAY "NUMBER IS PRIME" AT 1438
+               END-IF
+               ADD 1 TO PRIMETEMP
+           END-PERFORM.
+
+
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-F.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "PRELIMS: " AT 1338.
+           ACCEPT PRELIMSV2 AT 1347.
+           DISPLAY "MIDTERM: " AT 1438.
+           ACCEPT MIDTERMV2 AT 1447.
+           DISPLAY "FINALS: " AT 1538.
+           ACCEPT FINALSV2 AT 1546.
+
+           COMPUTE AVEV2 = (PRELIMSV2 + MIDTERMV2 + FINALSV2) / 3.
+           IF AVEV2 >= 97 AND AVEV2 <= 100 THEN
+               DISPLAY "YOUR GRADE IS 1.0 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 94 AND AVEV2 <= 96 THEN
+               DISPLAY "YOUR GRADE IS 1.25 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 91 AND AVEV2 <= 93 THEN
+               DISPLAY "YOUR GRADE IS 1.50 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 88 AND AVEV2 <= 90 THEN
+               DISPLAY "YOUR GRADE IS 1.75 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 85 AND AVEV2 <= 87 THEN
+               DISPLAY "YOUR GRADE IS 2.00 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 82 AND AVEV2 <= 84 THEN
+               DISPLAY "YOUR GRADE IS 2.25 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 79 AND AVEV2 <= 81 THEN
+               DISPLAY "YOUR GRADE IS 2.50 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 79 AND AVEV2 <= 81 THEN
+               DISPLAY "YOUR GRADE IS 2.50 AND PASSED" AT 1730
+           ELSE IF AVEV2 >= 76 AND AVEV2 <= 78 THEN
+               DISPLAY "YOUR GRADE IS 2.75 AND PASSED" AT 1730
+           ELSE IF AVEV2 = 75 THEN
+               DISPLAY "YOUR GRADE IS 3.00 AND PASSED" AT 1730
+           ELSE
+               DISPLAY "YOUR GRADE IS 5.00 AND FAILED" AT 1730.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-G.
+           DISPLAY "SALESMAN NAME:".
+           ACCEPT COMMNAME.
+           DISPLAY "NO. OF UNIT SOLD:".
+           ACCEPT UNITSOLD.
+           DISPLAY "UNIT PRICE:"
+           ACCEPT UNITPRICE.
+
+           COMPUTE TOTALSALE = UNITSOLD * UNITPRICE.
+
+           IF TOTALSALE <= 10000 THEN
+               COMPUTE COMMISSION = TOTALSALE * 0.1
+               DISPLAY "1"
+           ELSE IF TOTALSALE >= 10001 AND TOTALSALE <= 15000 THEN
+               COMPUTE COMMISSION = TOTALSALE * 0.15
+               DISPLAY "2"
+           ELSE IF TOTALSALE >= 15001 AND TOTALSALE <= 20000 THEN
+               COMPUTE COMMISSION = TOTALSALE * 0.2
+               DISPLAY "3"
+           ELSE
+               COMPUTE COMMISSION = TOTALSALE * 0.3.
+
+           DISPLAY COMMNAME "'S COMMISSION IS: " COMMISSION.
+
+       SELECTION-H.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "ENTER LETTER: " AT 1338.
+           ACCEPT CHARVOC AT 1352.
+
+           IF CHARVOC IS ALPHABETIC
+               DISPLAY "INVALID INPUT" AT 1538
+               IF CHARVOC = "A" OR CHARVOC = "E" OR CHARVOC = "I"
+                   OR CHARVOC = "O" OR CHARVOC = "U"
+                   DISPLAY "ENTERED LETTER IS VOWEL" AT 1538
+               ELSE
+                   DISPLAY "ENTERED LETTER IS CONSONANT" AT 1538.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-I.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "ORDER NUMBER: " AT 1338.
+           ACCEPT ORDERNUMV2 AT 1352.
+           DISPLAY "ORDER AMOUNT: " AT 1438.
+           ACCEPT ORDERAMOUNTV2 AT 1452.
+           DISPLAY "TENDER AMOUNT: " AT 1538.
+           ACCEPT ORDERTENDERV2 AT 1553.
+
+           COMPUTE ORDERCHANGEV2 = ORDERTENDERV2 - ORDERAMOUNTV2.
+
+           IF ORDERAMOUNTV2 IS GREATER THAN ORDERTENDERV2
+               DISPLAY "AMOUNT TENDER MUST BE " AT 1738
+               DISPLAY "GREATER THAN ORDER AMOUNT" AT 1738
+           ELSE
+               DISPLAY "ORDER TOTAL   : P" AT 1738 ORDERAMOUNTV2 AT 1755.
+               DISPLAY "TENDER AMOUNT : P" AT 1838 ORDERTENDERV2 AT 1855.
+               DISPLAY "CHANGE        : P" AT 1938 ORDERCHANGEV2 AT 1955.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       SELECTION-J.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "BANK ACCOUNT NUMBER: " AT 1330.
+           ACCEPT BANKNUMBER AT 1351.
+           DISPLAY "BANK ACCOUNT NAME: " AT 1430.
+           ACCEPT BANKNAME AT 1449.
+           DISPLAY "BANK ACCOUNT BALANCE: " AT 1530.
+           ACCEPT BANKBALANCE AT 1552.
+           DISPLAY "[D]EPOSIT / [W]ITHDRAW: " AT 1630.
+           ACCEPT BANKCHOICE AT 1654.
+
+           IF BANKCHOICE = "D"
+               PERFORM BANK-DEPOSIT
+           ELSE IF BANKCHOICE = "W"
+               PERFORM BANK-WITHDRAW
+           ELSE
+               DISPLAY "INVALID INPUT" AT 1830.
+               ACCEPT GETCH  AT 1847.
+               PERFORM SELECTION-J.
+
+           BANK-DEPOSIT.
+               DISPLAY "HOW MUCH TO DEPOSIT? " AT 1832.
+               ACCEPT BANKTRANCAMOUNT AT 1850.
+
+               COMPUTE BANKBALANCE = BANKBALANCE + BANKTRANCAMOUNT.
+
+               DISPLAY "TOTAL BALANCE AFTER DEPOSIT: P" AT 1930
+               DISPLAY BANKBALANCE AT 1960.
+
+               DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+               ACCEPT GETCH AT 2331.
+               PERFORM SELECTION-MENU.
+
+           BANK-WITHDRAW.
+               DISPLAY "HOW MUCH TO WITHDRAW? " AT 1832.
+               ACCEPT BANKTRANCAMOUNT AT 1854.
+
+               COMPUTE BANKBALANCE = BANKBALANCE - BANKTRANCAMOUNT.
+
+               DISPLAY "TOTAL BALANCE AFTER WITHDRAW: P" AT 1930
+               DISPLAY BANKBALANCE AT 1961.
+
+               DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+               ACCEPT GETCH AT 2331.
+               PERFORM SELECTION-MENU.
+
+       LOOPS-A.
+           SET LINEROW TO 15.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT ONETONUM AT 1351.
+
+           PERFORM UNTIL BASENUM > ONETONUM
+               DISPLAY BASENUM AT LINE LINEROW COLUMN 38
+               ADD 1 TO BASENUM
+               ADD 1 TO LINEROW
+           END-PERFORM.
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       LOOPS-B.
+           SET LINEROW TO 14.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT EVENNUM1 AT 1351.
+
+           PERFORM VARYING EVENBASENUM FROM 1 BY 1 UNTIL
+               EVENBASENUM > EVENNUM1
+           IF FUNCTION MOD(EVENBASENUM, 2) = 0 THEN
+               ADD 1 TO LINEROW
+               DISPLAY EVENBASENUM AT LINE LINEROW COLUMN 38
+           END-PERFORM.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       LOOPS-C.
+           SET LINEROW TO 15.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1338.
+           ACCEPT FACTNUM AT 1351.
+
+           MOVE 1 TO FACTI.
+           PERFORM UNTIL FACTI > FACTNUM
+               COMPUTE FACTORIAL = FACTORIAL * FACTI
+               ADD 1 TO FACTI
+           END-PERFORM.
+
+           DISPLAY "FACTORIAL IS " AT 1538 FACTORIAL AT 1551.
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+
+       LOOPS-D.
+           SET LINEROW TO 15.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "NTH TERM: " AT 1338.
+           ACCEPT FIBOCAP AT 1348.
+
+           PERFORM UNTIL FIBOI = FIBOCAP
+               DISPLAY FIBON2 AT LINE LINEROW COLUMN 38
+               MOVE FIBON2 TO FIBOTEMP
+               COMPUTE FIBON2 = FIBON1 + FIBON2
+               MOVE FIBOTEMP TO FIBON1
+               ADD 1 TO FIBOI
+               ADD 1 TO LINEROW
+           END-PERFORM.
+
+       LOOPS-E.
+           SET LINEROW TO 15.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "INPUT NUMBER: " AT 1334.
+           ACCEPT REVN AT 1348.
+
+           MOVE REVN TO REVTEMP.
+           PERFORM REVERSER UNTIL REVN = 0.
+           DISPLAY "REVERSE OF " AT 1532 REVTEMP AT 1543
+           DISPLAY " IS " AT 1549 REVERSEREV AT 1553.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+           PERFORM LOOPS-MENU.
+
+           REVERSER.
+               DIVIDE REVN BY 10 GIVING REVN REMAINDER REVREM.
+               COMPUTE REVERSEREV = REVERSEREV * 10 + REVREM.
+
+       LOOPS-F.
+           PERFORM STARDISPLAY VARYING STARLINE FROM 1 BY 1 UNTIL
+               STARLINE > STARROWS.
+           STOP RUN.
+
+           STARDISPLAY.
+               PERFORM UNTIL STARCUR > STARLINE
+               DISPLAY "*" WITH NO ADVANCING
+               ADD 1 TO STARCUR
+               END-PERFORM.
+
+               DISPLAY " ".
+               SET STARCUR TO 1.
+
+       LOOPS-G.
+           PERFORM TRIDISPLAY VARYING TRILINE FROM 1 BY 1 UNTIL
+               TRILINE = TRIROWS.
+           STOP RUN.
+
+           TRIDISPLAY.
+               PERFORM UNTIL TRICUR < TRILINE
+               DISPLAY NUMTRIANGLE WITH NO ADVANCING
+               SUBTRACT 1 FROM TRICUR
+               END-PERFORM.
+
+               DISPLAY " ".
+               SET TRICUR TO 5.
+               SUBTRACT 1 FROM NUMTRIANGLE.
+       LOOPS-H.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           PERFORM STARDISPLAYV2 VARYING STARLINEV2 FROM 1 BY 1 UNTIL
+               STARLINEV2 > STARROWSV2.
+           PERFORM TRIDISPLAYV2 VARYING TRILINEV2 FROM 1 BY 1 UNTIL
+               TRILINEV2 = TRIROWSV2.
+
+           STARDISPLAYV2.
+               PERFORM UNTIL STARCURV2 > STARLINEV2
+                   IF FUNCTION MOD(STARCURV2, 2) = 1
+                       PERFORM STARSPACE TIMES
+                           DISPLAY " " WITH NO ADVANCING
+                       END-PERFORM
+                       PERFORM STARCURV2 TIMES
+                           DISPLAY "*" WITH NO ADVANCING
+                       END-PERFORM
+                       SUBTRACT 1 FROM STARSPACE
+                   END-IF
+
+                   ADD 1 TO STARCURV2
+                   DISPLAY " "
+               END-PERFORM.
+
+           TRIDISPLAYV2.
+               PERFORM UNTIL TRICURV2 < TRILINEV2
+                   IF FUNCTION MOD(TRICURV2, 2) = 1
+                       PERFORM TRISPACE TIMES
+                           DISPLAY " " WITH NO ADVANCING
+                       END-PERFORM
+                       PERFORM TRICURV2 TIMES
+                           DISPLAY "*" WITH NO ADVANCING
+                       END-PERFORM
+                       ADD 1 TO TRISPACE
+                   END-IF
+                   SUBTRACT 1 FROM TRICURV2
+                   DISPLAY " "
+               END-PERFORM.
+
+           DISPLAY "PRESS [ENTER] TO CONTINUE..." AT 2231.
+           ACCEPT GETCH AT 2331.
+           PERFORM LOOPS-MENU.
+       LOOPS-I.
+           SET LINEROW TO 14.
+           DISPLAY CLEAR-SCREEN.
+           PERFORM BORDER.
+           DISPLAY "ORDER NUMBER: " AT 1138.
+           ACCEPT ORDERNUMV3 AT 1152.
+           DISPLAY "ITEM COUNT: " AT 1238.
+           ACCEPT ORDERCOUNTV3 AT 1250.
+
+           PERFORM ORDERCOUNTV3 TIMES
+               DISPLAY "ITEM NAME: " AT LINE LINEROW COLUMN 38
+               ACCEPT ITEMNAME AT LINE LINEROW COLUMN 49
+               ADD 1 TO LINEROW
+               DISPLAY "ITEM PRICE: " AT LINE LINEROW COLUMN 38
+               ACCEPT ITEMPRICE AT LINE LINEROW COLUMN 50
+               COMPUTE ORDERAMOUNTV3 = ORDERAMOUNTV3 + ITEMPRICE
+               ADD 1 TO LINEROW
+           END-PERFORM.
+           COMPUTE LINEROW = LINEROW + 1.
+           DISPLAY "TENDER AMOUNT: " AT LINE LINEROW COLUMN 38.
+           COMPUTE LINEROW = LINEROW + 1.
+           ACCEPT ORDERTENDERV3 AT LINE LINEROW COLUMN 38
+
+           COMPUTE ORDERCHANGEV3 = ORDERTENDERV3 - ORDERAMOUNTV3.
+           COMPUTE LINEROW = LINEROW + 1.
+
+           DISPLAY "TENDER AMOUNT : P" AT LINE LINEROW COLUMN 38.
+           DISPLAY ORDERTENDERV3 AT LINE LINEROW COLUMN 38.
+           COMPUTE LINEROW = LINEROW + 1.
+           DISPLAY "TOTAL AMOUNT   : P" AT LINE LINEROW COLUMN 38.
+           DISPLAY ORDERAMOUNTV3 AT LINE LINEROW COLUMN 38.
+           COMPUTE LINEROW = LINEROW + 1.
+           DISPLAY "CHANGE        : P" AT LINE LINEROW COLUMN 38.
+           DISPLAY ORDERCHANGEV3 AT LINE LINEROW COLUMN 38.
+
+       BORDER.
+           PERFORM UNTIL BORDERLINE < 31
+               DISPLAY "|" AT LINE BORDERLINE COLUMN 1
+               ADD 1 TO BORDERLINE
+           END-PERFORM.
+           PERFORM VARYING BORDERLINE FROM 1 BY 1 UNTIL BORDERLINE < 31
+               DISPLAY "|" AT LINE BORDERLINE COLUMN 89
+           END-PERFORM.
+
+      *top half
+           DISPLAY "+----------------------------------------" AT 0101.
+           DISPLAY "++++++++" AT 0142.
+           DISPLAY "----------------------------------------+" AT 0150.
+      *bottom half
+           DISPLAY "+----------------------------------------" AT 3001.
+           DISPLAY "++++++++" AT 3042.
+           DISPLAY "----------------------------------------+" AT 3050.
+
+           END PROGRAM MAIN-MENU.
