@@ -1,0 +1,34 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. 7-AVERAGE-OF-SCORES.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT AVERAGE-FILE
+           ASSIGN TO "D:\Files\dat\average.dat"
+           ORGANIZATION IS LINE SEQUENTIAL.
+       DATA DIVISION.
+       FILE SECTION.
+       FD AVERAGE-FILE.
+       01 AVERAGE-REC.
+           05 PRELIMS PIC 9(3).
+           05 MIDTERM PIC 9(3).
+           05 FINALS PIC 9(3).
+           05 AVE PIC 9(2)V9(2).
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           OPEN EXTEND AVERAGE-FILE.
+           DISPLAY "PRELIMS: ".
+           ACCEPT PRELIMS.
+           DISPLAY "MIDTERM: ".
+           ACCEPT MIDTERM.
+           DISPLAY "FINALS: ".
+           ACCEPT FINALS.
+
+           COMPUTE AVE = (PRELIMS + MIDTERM + FINALS) / 3.
+
+           DISPLAY "AVERAGE IS: " AVE.
+
+           WRITE AVERAGE-REC.
+           CLOSE AVERAGE-FILE.
+           STOP RUN.
+       END PROGRAM 7-AVERAGE-OF-SCORES.

@@ -30,25 +30,33 @@
                    PERFORM SEMESTRALGRADE
                    PERFORM MAINMENU
                WHEN CHOICE = "B"
-                   PERFORM EQUIVALENTGRADE
+                   PERFORM SEMESTRALGRADE
                    PERFORM MAINMENU
                WHEN CHOICE = "C"
+                   PERFORM EQUIVALENTGRADE
+                   PERFORM MAINMENU
+               WHEN CHOICE = "D"
                    STOP RUN.
+
 
            SEMESTRALGRADE.
                DISPLAY CLEAR-SCREEN.
                DISPLAY "[ SEMESTRAL GRADE ] " AT 0335.
-               DISPLAY "ENTER PRELIM GRADE: " AT 0833.
-               ACCEPT PRE AT 0854.
-               DISPLAY "ENTER MIDTERM GRADE: " AT 0933.
-               ACCEPT MID AT 0954.
-               DISPLAY "ENTER FINALS GRADE: " AT 1033.
-               ACCEPT FIN AT 1054.
+               DISPLAY "ENTER STUDENT NAME: " AT 0828.
+               ACCEPT STUDENTNAME AT 0848.
+               DISPLAY "ENTER STUDENT NUMBER: " AT 0928.
+               ACCEPT STUDENTNAME AT 0950.
+               DISPLAY "ENTER PRELIM GRADE: " AT 1133.
+               ACCEPT PRE AT 1154.
+               DISPLAY "ENTER MIDTERM GRADE: " AT 1233.
+               ACCEPT MID AT 1254.
+               DISPLAY "ENTER FINALS GRADE: " AT 1333.
+               ACCEPT FIN AT 1354.
 
                COMPUTE SEMGRADE = (PRE * .3) + (MID * .3) + (FIN *.4).
-               DISPLAY "YOUR SEMESTER GRADE IS "AT 1333 SEMGRADE AT 1356.
-               DISPLAY "PRESS [ENTER] TO CONTINUE." AT 1533.
-               ACCEPT GETCH AT 1559.
+               DISPLAY "YOUR SEMESTER GRADE IS "AT 1533 SEMGRADE AT 1556.
+               DISPLAY "PRESS [ENTER] TO CONTINUE." AT 1733.
+               ACCEPT GETCH AT 1759.
 
            EQUIVALENTGRADE.
                DISPLAY CLEAR-SCREEN.
